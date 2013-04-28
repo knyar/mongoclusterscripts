@@ -14,8 +14,8 @@ mongo-backup
 This directory contains the `mongoclusterbackup` python module that can be used
 to create consistent backups of your mongodb cluster.
 
-It basically follows mongodb shard backup procedure described in mongodb
-documentation (http://bit.ly/11uNuYa):
+It basically follows [mongodb shard backup procedure described in mongodb
+documentation](http://docs.mongodb.org/manual/tutorial/backup-sharded-cluster-with-filesystem-snapshots/):
 - stops cluster balancer;
 - stops one of configuration servers to prevent metadata changes;
 - backs up configuration database;

@@ -26,6 +26,9 @@ import Queue
     will still have to copy that data to the backup medium of your choice and
     remove LVM snapshots.
 
+    This expects that the machine you run this on has a passwordless ssh
+    access to configuration servers and shards.
+
 """
 
 logging.basicConfig(format="%(asctime)-15s %(message)s", level=logging.INFO)
