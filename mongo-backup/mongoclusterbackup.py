@@ -254,10 +254,10 @@ class BackupCluster:
 
     def wait_for_locks(self):
         """ Loop until all shard locks are released.
-            Give up after 10 minutes.
+            Give up after 30 minutes.
         """
         retries = 0
-        while len(self.mongos.get_locks()) and retries < 120:
+        while len(self.mongos.get_locks()) and retries < 360:
             logging.info("Waiting for locks to be released: %s" %
                          self.mongos.get_locks())
             time.sleep(5)
@@ -355,7 +355,7 @@ class BackupCluster:
             wrong.
         """
         self.rollback_steps.insert(0, self.mongos.start_balancer)
-        self.run_step(self.mongos.stop_balancer)
+        self.run_step(self.mongos.stop_balancer, 2)
 
         self.run_step(self.wait_for_locks)
 
